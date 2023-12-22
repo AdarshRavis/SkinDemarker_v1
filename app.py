@@ -3,9 +3,18 @@ from keras.models import load_model
 import numpy as np
 import cv2
 from matplotlib import pyplot as plt
+import requests
+
+# Define the URL for the model file
+model_url = 'https://drive.google.com/file/d/18X6mSr2NaCZGnGsZcyHqURs4LHd1cFEQ/view?usp=share_link'
+
+# Download the model file
+response = requests.get(model_url)
+with open('model_016950.h5', 'wb') as f:
+    f.write(response.content)
 
 # Load your trained model
-model = load_model('/Users/adarsh/Desktop/MacroImg/model_016950.h5')
+model = load_model('model_016950.h5')
 
 # Load and preprocess your custom image
 def load_and_preprocess_image(image_path, target_shape=(256, 256)):
