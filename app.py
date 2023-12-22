@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 import requests
 
 # Define the URL for the model file
-model_url = 'https://drive.google.com/file/d/18X6mSr2NaCZGnGsZcyHqURs4LHd1cFEQ/view?usp=share_link'
+model_url = 'https://drive.google.com/uc?export=download&id=18X6mSr2NaCZGnGsZcyHqURs4LHd1cFEQ'
 
 # Download the model file
 response = requests.get(model_url)
