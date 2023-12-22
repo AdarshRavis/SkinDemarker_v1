@@ -1,6 +1,7 @@
 requests
 keras.models
 numpy
+Pillow
 Image
 matplotlib
 tensorflow
