@@ -1,7 +1,7 @@
 import streamlit as st
 from keras.models import load_model
 import numpy as np
-import cv2
+from PIL import Image
 from matplotlib import pyplot as plt
 import requests
 
@@ -18,15 +18,16 @@ model = load_model('model_016950.h5')
 
 # Load and preprocess your custom image
 def load_and_preprocess_image(image_path, target_shape=(256, 256)):
-    # Load the image using OpenCV
-    custom_image = cv2.imread(image_path)
+    # Open the image using PIL
+    custom_image = Image.open(image_path)
     
     # Resize the image to the desired shape
-    custom_image = cv2.resize(custom_image, target_shape)
+    custom_image = custom_image.resize(target_shape)
     
-    # Assuming the input image is in BGR format, swap the channels to RGB
-    custom_image = cv2.cvtColor(custom_image, cv2.COLOR_BGR2RGB)
+    # Convert the image to an array
+    custom_image = np.array(custom_image)
     
+    # Assuming the input image is in RGB format
     # Check if the image needs normalization (pixel values in [0, 255] range)
     if custom_image.max() > 1.0:
         # Normalize the pixel values to the range [-1, 1]
@@ -36,6 +37,7 @@ def load_and_preprocess_image(image_path, target_shape=(256, 256)):
     custom_image = np.expand_dims(custom_image, axis=0)
     
     return custom_image
+
 
 # Plot source and generated images
 def plot_images(src_img, gen_img):
