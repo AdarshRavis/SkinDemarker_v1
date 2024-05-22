@@ -14,7 +14,7 @@ with open('Demarker_v1.h5', 'wb') as f:
     f.write(response.content)
 
 # Load your trained model
-model = load_model('Demarker_v1.h5.h5')
+model = load_model('Demarker_v1.h5')
 
 # Load and preprocess your custom image
 def load_and_preprocess_image(image_path, target_shape=(256, 256)):
