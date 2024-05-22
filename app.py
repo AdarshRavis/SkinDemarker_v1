@@ -6,11 +6,11 @@ from matplotlib import pyplot as plt
 import requests
 
 # Define the URL for the model file
-model_url = 'https://drive.google.com/uc?export=download&id=18X6mSr2NaCZGnGsZcyHqURs4LHd1cFEQ'
+model_url = 'https://drive.google.com/uc?export=download&id=1ygsOi3vus0K91kWdeOEeBW2kjL9d7gsi'
 
 # Download the model file
 response = requests.get(model_url)
-with open('model_016950.h5', 'wb') as f:
+with open('Demarker_v1.h5', 'wb') as f:
     f.write(response.content)
 
 # Load your trained model
